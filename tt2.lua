@@ -44,12 +44,10 @@ while appState("com.gamehivecorp.taptitans2") == "ACTIVATED" do
         if clickFairies.value then chaseFairies() end
         if clickFlashZip.value then chaseFlashZip() end
         if mainStageBossAvailable() then tapButton(Menu.fightBoss) end
-        
         -- Use Skills
         useSkill()
         -- Level  Hereos
         if checkCounter then levelHeroes() end
-
         -- Attack with Sword Master
         if tapAttack then
             ttap(0, 110, 680);

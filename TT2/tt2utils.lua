@@ -390,6 +390,8 @@ end
 
 function useSkill()
     tapButton(Skill.warCry)
+    tapButton(Skill.handOfMidas)
+    tapButton(Skill.shadowClone)
 end
 
 function fileExists(file)
@@ -410,4 +412,6 @@ function writeTime(file)
     local f = io.open(rootDir() .. "TT2/" .. file .. ".txt", "w")
     f:write(os.time())
     f:close()
+    -- write time to log as well
+    log(file .. " at " .. os.date("%X"))
 end

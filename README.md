@@ -44,7 +44,7 @@ This setting will determine how many attacks you do per clan quest. Entering 0 w
 ### Tap Attack
 If you would rather not attack titans and let your heroes do it for you go ahead and turn this off. Keep in mind this will prevent pet attacks from occuring if you have less than 500 pet levels. Will not effect clan quests.
 ### Prestige Timer
-After X minutes you will prestige. This timer is stored outside of the script so starting/stopping the script will not change the time. Setting this to 0 will disable auto-prestige. If you would like to clear the last prestige time manually delete ```prestigetime.txt``` from the TT2 folder. 
+After X minutes you will prestige. This timer is stored outside of the script so starting/stopping the script will not change the time. Setting this to 0 will disable auto-prestige. If you would like to clear the last prestige time manually delete ```prestige.txt``` from the TT2 folder. 
 
 ## Status
 The bot currently has basic functionality with only a few minor issues that are being worked on so I'm releasing it as is. There will be minor updates in the future fixing any issues. The two additional features planned are:

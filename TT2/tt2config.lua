@@ -25,10 +25,10 @@ end
 -- You might need to tweak these depending on how fast/slow your iOS device is
 
 Delay = {
-	tap 		= 25000, -- time between/after touchUp/touchDown events [default: 25000]
-	menu		= 1e6,   -- time for menu transitions etc [default: 1e6]
-	slide 		= 1e4,   -- time between touchMove events [default: 1e4]
-	animation 	= 5e5,   -- time for animations [default: 5e5]
+    tap         = 25000, -- time between/after touchUp/touchDown events [default: 25000]
+    menu        = 1e6,   -- time for menu transitions etc [default: 1e6]
+    slide       = 1e4,   -- time between touchMove events [default: 1e4]
+    animation   = 5e5,   -- time for animations [default: 5e5]
     prestige    = 8e6    -- time for prestige animation [default: 8e6]
 }
 
