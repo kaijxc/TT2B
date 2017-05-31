@@ -35,44 +35,44 @@ function scroll(q, a, b, x, y, z)
 end
 
 function scrollTop()
-    touchDown(5, 400, 850);
+    touchDown(5, 375, 850);
     usleep(5e4);
-    touchMove(5, 400, 860);
+    touchMove(5, 375, 860);
     usleep(Delay.slide);
-    touchMove(5, 400, 903);
+    touchMove(5, 375, 903);
     usleep(Delay.slide);
-    touchMove(5, 400, 1000);
+    touchMove(5, 375, 1000);
     usleep(Delay.slide);
-    touchMove(5, 400, 1116);
+    touchMove(5, 375, 1116);
     usleep(Delay.slide);
-    touchMove(5, 400, 1250);
+    touchMove(5, 375, 1250);
     usleep(Delay.slide);
-    touchUp(5, 400, 1259);
+    touchUp(5, 375, 1259);
     usleep(5e5);
 end
 
 function scrollBottom()
-    touchDown(5, 400, 1215);
+    touchDown(5, 375, 1215);
     usleep(5e4);
-    touchMove(5, 400, 1176);
+    touchMove(5, 375, 1176);
     usleep(Delay.slide);
-    touchMove(5, 400, 1154);
+    touchMove(5, 375, 1154);
     usleep(Delay.slide);
-    touchMove(5, 400, 1120);
+    touchMove(5, 375, 1120);
     usleep(Delay.slide);
-    touchMove(5, 400, 1064);
+    touchMove(5, 375, 1064);
     usleep(Delay.slide);
-    touchMove(5, 400, 961);
+    touchMove(5, 375, 961);
     usleep(Delay.slide);
-    touchMove(5, 400, 808);
+    touchMove(5, 375, 808);
     usleep(Delay.slide);
-    touchMove(5, 400, 600);
+    touchMove(5, 375, 600);
     usleep(Delay.slide);
-    touchMove(5, 400, 351);
+    touchMove(5, 375, 351);
     usleep(Delay.slide);
-    touchMove(5, 400, 109);
+    touchMove(5, 375, 109);
     usleep(Delay.slide);
-    touchUp(5, 400, 105);
+    touchUp(5, 375, 105);
     usleep(5e5);
 end
 
@@ -176,7 +176,14 @@ function chaseFlashZip()
         local flashZip = findColors(Icon.flashZip.table, 0, Icon.flashZip.region)
 
         if next(flashZip) ~= nil then
-            ttap(1, flashZip[1][1], flashZip[1][2])
+            local x = flashZip[1][1]
+            local y = flashZip[1][2]
+
+            if x > 500 and x < 600 and y > 625 then
+                return
+            else
+                ttap(1, x, y)
+            end
         end
     end
 end
@@ -240,9 +247,9 @@ end
 
 function prestige()
     tapButton(Menu.swordMaster)
-    scroll(3, 400, 1100, 400, 1014, 20) -- multiplier bar
+    scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
     usleep(Delay.animation)
-    scroll(4, 400, 1250, 400, 766, 40)
+    scroll(4, 375, 1250, 375, 766, 40)
     usleep(Delay.animation)
     tapButton(Menu.prestige)
     -- wait for prestige window (network delay sometimes)
@@ -321,7 +328,7 @@ function learnSkills(x)
     local count = x or 1
     tapButton(Menu.swordMaster)
     scrollTop()
-    scroll(3, 400, 1100, 400, 1014, 20) -- multiplier bar
+    scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
 
     for i=1, count do
         ttap(1, 630, 1000); -- learn pos 2 (heavenly strike)
@@ -329,7 +336,7 @@ function learnSkills(x)
         ttap(1, 630, 1220); -- learn pos 4 (hand of midas)
     end
     
-    scroll(4, 400, 1250, 400, 766, 40)
+    scroll(4, 375, 1250, 375, 766, 40)
     usleep(Delay.menu);
 
     for i=1, count do
@@ -350,7 +357,7 @@ function hireHeroes()
     scrollTop()
     scrollTop()
     usleep(Delay.menu)
-    scroll(3, 400, 1100, 400, 1014, 20) -- multiplier bar
+    scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
     usleep(Delay.animation)
 
     for i = 1, 7 do
@@ -365,7 +372,7 @@ function hireHeroes()
             end
         end
         usleep(Delay.animation)
-        scroll(4, 400, 1250, 400, 766, 40)
+        scroll(4, 375, 1250, 375, 766, 40)
         usleep(Delay.animation)
     end
     usleep(Delay.animation)
