@@ -49,7 +49,7 @@ while appState("com.gamehivecorp.taptitans2") == "ACTIVATED" do
         -- Level  Hereos
         if checkCounter then levelHeroes() end
         -- Attack with Sword Master
-        if tapAttack then
+        if tapAttack.value then
             ttap(0, 110, 680);
             ttap(1, 220, 680);
             ttap(2, 330, 620);

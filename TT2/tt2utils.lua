@@ -272,12 +272,15 @@ function fightClanQuest(value)
 
             for i = 1, rounds do
                 -- dont do successive clan quests unless 6 hours has past since last diamond use
-                if round > 1 and not checkClanQuestDiamonds() then break end
-                
+                if round > 1 and not checkClanQuestDiamonds() then 
+                    log("Breaking, diamonds spent within last 6 hours")
+                    break 
+                end
+                                
                 if waitForPixel(Menu.clanFight, 10) then
                     
                     tapButton(Menu.clanFight)
-
+                    log("Entering clan Stage - Round #" .. i)
                     if round > 1 and checkClanQuestDiamonds() then
                         waitForPixel(Menu.clanFightRepeat, 5)
                         tapButton(Menu.clanFightRepeat)
