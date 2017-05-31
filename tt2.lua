@@ -77,6 +77,13 @@ while appState("com.gamehivecorp.taptitans2") == "ACTIVATED" do
             usleep(Delay.menu)
         end
 
+        if hasPixel(Stage.splashDark) then
+            usleep(Delay.animation)
+            ttap(1, 357, 350)
+            usleep(Delay.menu)
+        end
+
+        -- Transition
         if hasPixel(Stage.transition) then
             usleep(2e6)
         end

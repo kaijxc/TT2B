@@ -38,7 +38,7 @@ With this enabled when fairy ads are displayed you will automatically click Coll
 ### Click Fairies
 This setting will have the bot actively look for fairies.
 ### Click Flash Zip
-This setting will chase after the flash zip when facing a boss titan. Currently there is an issue where when the flash zip finds itself behind your equipment stack you will inadvertantly ding the stack. Will work on this later.
+This setting will chase after the flash zip when facing a boss titan.
 ### Clan Quest Rounds
 This setting will determine how many attacks you do per clan quest. Entering 0 will disable clan quests completely. Inputs greater than 1 will force multiple attacks with a six hour cooldown. Meaning if you set this at 3 you will burn 30 diamonds, after which for the next 6 hours you will only attack once every time a fight triggers. The timer for this is stored outside of the script so if you would like to clear the last time you spent diamonds manually delete ```clanquest.txt``` from the TT2 folder.
 ### Tap Attack
@@ -49,7 +49,7 @@ After X minutes you will prestige. This timer is stored outside of the script so
 ## Status
 The bot currently has basic functionality with only a few minor issues that are being worked on so I'm releasing it as is. There will be minor updates in the future fixing any issues. The two additional features planned are:
 
- 1. Hero recognition for Nohni, Finn, and Damon.
+ 1. Hero recognition for Nohni, Finn, and Damon (in progress).
  2. Advanced skill usage based on mana.
 
 A premium version of this script is planned to be released on the AutoTouch store with advanced features such as clan hopping during cq cooldown, auto tournament to max bracket stage, purchasing pets from the store and more. To be announced soon<sup>tm</sup>. 
