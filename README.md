@@ -55,4 +55,6 @@ The bot currently has basic functionality with only a few minor issues that are 
 A premium version of this script is planned to be released on the AutoTouch store with advanced features such as clan hopping during cq cooldown, auto tournament to max bracket stage, purchasing pets from the store and more. To be announced soon<sup>tm</sup>. 
 
 ### Issues
+Currently only supports iPhone 6/6s/7 resolution. Tested on an iPhone 6s 9.3.3 w/ AutoTouch 3.6.1
+
 If you have a feature request or bug report go ahead and throw something up [here](https://github.com/kaijxc/TT2B/issues/new). 

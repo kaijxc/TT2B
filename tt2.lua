@@ -7,8 +7,9 @@ local clickFlashZip = {type = CONTROLLER_TYPE.SWITCH, title = "Chase Flash Zip?"
 local clanQuestRounds = {type = CONTROLLER_TYPE.INPUT, title = "Number of CQ/Titan", key = "cqrounds", value = "1"}
 local tapAttack = {type = CONTROLLER_TYPE.SWITCH, title = "Attack with Sword Master?", key = "attack", value = 1}
 local prestigeTimer = {type = CONTROLLER_TYPE.INPUT, title = "Prestige Timer (in minutes)", key = "pTimer", value = "60"}
+local primaryHero = {type = CONTROLLER_TYPE.PICKER, title = "Primary Hero", key = "hero", value = "Finn", options = {"Damon", "Finn", "Nohni"}}
 
-local controls = {premiumAccount, clickFairies, clickFlashZip, tapAttack, clanQuestRounds, prestigeTimer}
+local controls = {premiumAccount, clickFairies, clickFlashZip, tapAttack, clanQuestRounds, prestigeTimer, primaryHero}
 local enableRemember = true
 
 dialog(controls, enableRemember)
@@ -41,15 +42,15 @@ while appState("com.gamehivecorp.taptitans2") == "ACTIVATED" do
         checkForDaily()
 
         -- Find and Click
-        if clickFairies.value then chaseFairies() end
-        if clickFlashZip.value then chaseFlashZip() end
+        if clickFairies.value == 1 then chaseFairies() end
+        if clickFlashZip.value == 1 then chaseFlashZip() end
         if mainStageBossAvailable() then tapButton(Menu.fightBoss) end
         -- Use Skills
         useSkill()
         -- Level  Hereos
-        if checkCounter then levelHeroes() end
+        if checkCounter then levelHeroes(primaryHero.value) end
         -- Attack with Sword Master
-        if tapAttack.value then
+        if tapAttack.value == 1 then
             ttap(0, 110, 680);
             ttap(1, 220, 680);
             ttap(2, 330, 620);
@@ -63,7 +64,7 @@ while appState("com.gamehivecorp.taptitans2") == "ACTIVATED" do
     while not hasPixel(Stage.main) do
         checkCounter = true
         -- Fairy Ad
-        if premiumAccount and hasPixel(Stage.fairyAd) then
+        if premiumAccount.value == 1 and hasPixel(Stage.fairyAd) then
             ttap(1, 566, 1040)
         elseif hasPixel(Stage.fairyAd) then
             tap(1, 200, 1040);

@@ -4,6 +4,7 @@
 
 clanFightTime       = nil
 currentMultiplier   = nil
+maxHeroCounter      = nil
 
 -- Utilities
 
@@ -35,45 +36,45 @@ function scroll(q, a, b, x, y, z)
 end
 
 function scrollTop()
-    touchDown(5, 375, 850);
-    usleep(5e4);
-    touchMove(5, 375, 860);
-    usleep(Delay.slide);
-    touchMove(5, 375, 903);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1000);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1116);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1250);
-    usleep(Delay.slide);
-    touchUp(5, 375, 1259);
-    usleep(5e5);
+    touchDown(5, 375, 850)
+    usleep(5e4)
+    touchMove(5, 375, 860)
+    usleep(Delay.slide)
+    touchMove(5, 375, 903)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1000)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1116)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1250)
+    usleep(Delay.slide)
+    touchUp(5, 375, 1259)
+    usleep(5e5)
 end
 
 function scrollBottom()
-    touchDown(5, 375, 1215);
-    usleep(5e4);
-    touchMove(5, 375, 1176);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1154);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1120);
-    usleep(Delay.slide);
-    touchMove(5, 375, 1064);
-    usleep(Delay.slide);
-    touchMove(5, 375, 961);
-    usleep(Delay.slide);
-    touchMove(5, 375, 808);
-    usleep(Delay.slide);
-    touchMove(5, 375, 600);
-    usleep(Delay.slide);
-    touchMove(5, 375, 351);
-    usleep(Delay.slide);
-    touchMove(5, 375, 109);
-    usleep(Delay.slide);
-    touchUp(5, 375, 105);
-    usleep(5e5);
+    touchDown(5, 375, 1215)
+    usleep(5e4)
+    touchMove(5, 375, 1176)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1154)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1120)
+    usleep(Delay.slide)
+    touchMove(5, 375, 1064)
+    usleep(Delay.slide)
+    touchMove(5, 375, 961)
+    usleep(Delay.slide)
+    touchMove(5, 375, 808)
+    usleep(Delay.slide)
+    touchMove(5, 375, 600)
+    usleep(Delay.slide)
+    touchMove(5, 375, 351)
+    usleep(Delay.slide)
+    touchMove(5, 375, 109)
+    usleep(Delay.slide)
+    touchUp(5, 375, 105)
+    usleep(5e5)
 end
 
 function hasPixel(pixel)
@@ -331,21 +332,21 @@ function learnSkills(x)
     scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
 
     for i=1, count do
-        ttap(1, 630, 1000); -- learn pos 2 (heavenly strike)
-        ttap(1, 630, 1120); -- learn pos 3 (critical strike)
-        ttap(1, 630, 1220); -- learn pos 4 (hand of midas)
+        ttap(1, 630, 1000) -- learn pos 2 (heavenly strike)
+        ttap(1, 630, 1120) -- learn pos 3 (critical strike)
+        ttap(1, 630, 1220) -- learn pos 4 (hand of midas)
     end
     
     scroll(4, 375, 1250, 375, 766, 40)
-    usleep(Delay.menu);
+    usleep(Delay.menu)
 
     for i=1, count do
-        ttap(1, 630, 875); -- learn pos 1
-        ttap(1, 630, 977); -- learn pos 2
-        ttap(1, 630, 1110); -- learn pos 3
+        ttap(1, 630, 875) -- learn pos 1
+        ttap(1, 630, 977) -- learn pos 2
+        ttap(1, 630, 1110) -- learn pos 3
     end
     usleep(Delay.animation)
-    tapButton(Menu.stageClose);
+    tapButton(Menu.stageClose)
 end
 
 function hireHeroes()
@@ -376,27 +377,90 @@ function hireHeroes()
         usleep(Delay.animation)
     end
     usleep(Delay.animation)
-    tapButton(Menu.stageClose);
+    tapButton(Menu.stageClose)
 end
 
-function levelHeroes()
-    levelUpMultiplier(0);
-    tapButton(Menu.heroes);
-    scrollBottom();
-    usleep(Delay.menu);
+function levelHeroes(name)
+    local dark = nil
+    local hero = nil
+    local y = nil
 
-    for i=1,3 do
-        ttap(1, 650, 1125); 
-        usleep(Delay.animation);
+    levelUpMultiplier(0)
+    tapButton(Menu.heroes)
+    scrollBottom()
+    usleep(Delay.menu)
+
+    if name == "Damon" then
+        local dark = findColors(Icon.damonDark.table, 0, Icon.damonDark.region)
+        local hero = findColors(Icon.damon.table, 0, Icon.damon.region)
+    elseif name == "Finn" then
+        local dark = findColors(Icon.finnDark.table, 0, Icon.finnDark.region)
+        local hero = findColors(Icon.finn.table, 0, Icon.finn.region)
+    elseif name == "Nohni"
+        local dark = findColors(Icon.nohniDark.table, 0, Icon.nohniDark.region)
+        local hero = findColors(Icon.nohni.table, 0, Icon.nohni.region)
     end
-    for i=1,3 do 
-        ttap(1, 650, 1000);
-        usleep(Delay.animation);
+
+    if next(dark) ~= nil then 
+        y = dark[1][2]
+    elseif next(hero) ~= nil then
+        y = hero[1][2]
     end
-    checkCounter = false;
+
+    if y ~= nil then
+        while getColor(521, y) ~= 10921638 do
+            ttap(1, 630, y + 50)
+            usleep(Delay.tap)
+        end
+    else
+        for i = 1, 3 do
+            ttap(1, 650, 1125) 
+            usleep(Delay.animation)
+        end
+        for i = 1, 3 do 
+            ttap(1, 650, 1000)
+            usleep(Delay.animation)
+        end
+    end
+    
+    checkCounter = false
+    maxHeroCounter = maxHeroCounter + 1
     usleep(Delay.animation)
-    tapButton(Menu.stageClose);
+    tapButton(Menu.stageClose)
 end
+
+function maxHeroes()
+    local upgradeAvailable = {}
+
+    levelUpMultiplier(0)
+    tapButton(Menu.heroes)
+    scrollTop()
+    scrollTop()
+    scrollTop()
+    usleep(Delay.menu)
+    scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
+    usleep(Delay.animation)
+
+    for i = 1, 7 do
+        upgradeAvailable = findColors(Icon.upgradeAvailable.table, 0, Icon.upgradeAvailable.region)
+
+        if next(upgradeAvailable) ~= nil then
+            for k, v in pairs(upgradeAvailable) do
+                while (getColor(v[1], v[2]) ~= 10921638) do
+                    ttap(1, 630, v[2] + 50)
+                    usleep(Delay.tap)
+                end
+            end
+        end
+        usleep(Delay.animation)
+        scroll(4, 375, 1250, 375, 766, 40)
+        usleep(Delay.animation)
+    end
+    usleep(Delay.animation)
+    tapButton(Menu.stageClose)
+end
+
+
 
 function useSkill()
     tapButton(Skill.warCry)
