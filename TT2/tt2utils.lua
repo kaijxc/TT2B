@@ -396,7 +396,7 @@ function levelHeroes(name)
     elseif name == "Finn" then
         local dark = findColors(Icon.finnDark.table, 0, Icon.finnDark.region)
         local hero = findColors(Icon.finn.table, 0, Icon.finn.region)
-    elseif name == "Nohni"
+    elseif name == "Nohni" then
         local dark = findColors(Icon.nohniDark.table, 0, Icon.nohniDark.region)
         local hero = findColors(Icon.nohni.table, 0, Icon.nohni.region)
     end
