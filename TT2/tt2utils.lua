@@ -4,7 +4,7 @@
 
 clanFightTime       = nil
 currentMultiplier   = nil
-maxHeroCounter      = nil
+maxHeroCounter      = 0
 
 -- Utilities
 
@@ -381,8 +381,8 @@ function hireHeroes()
 end
 
 function levelHeroes(name)
-    local dark = nil
-    local hero = nil
+    local dark = {}
+    local hero = {}
     local y = nil
 
     levelUpMultiplier(0)
