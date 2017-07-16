@@ -287,6 +287,7 @@ function fightClanQuest(value)
                                 
                 if waitForPixel(Menu.clanFight, 10) then
                     
+                    usleep(2e6)
                     tapButton(Menu.clanFight)
                     log("Entering clan Stage - Round #" .. i)
                     if round > 1 and checkClanQuestDiamonds() then
@@ -441,7 +442,7 @@ function maxHeroes()
     scroll(3, 375, 1100, 375, 1014, 20) -- multiplier bar
     usleep(Delay.animation)
 
-    for i = 1, 7 do
+    for i = 1, 8 do
         upgradeAvailable = findColors(Icon.upgradeAvailable.table, 0, Icon.upgradeAvailable.region)
 
         if next(upgradeAvailable) ~= nil then
